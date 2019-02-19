@@ -1,0 +1,213 @@
+1. Run the commands sort, wc, and uniq on the comands.js file. Explain how
+they work and what the output was.
+
+A:
+
+The sort command sorts the content of a text file line by line. My best guess is that it's
+comparing the value of the character codes.
+
+The out put of the commands.js file is:
+
+```
+throw error;
+        throw error;
+        throw error;
+       //we will add the functionality of echo next within the object commandLibrary
+       break;
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+      //Only select the first ten lines
+      //convert the the text back to unicode to display in terminal
+      //convert unicode to utf8
+      break;
+      break;
+      break;
+      break;
+      commandLibrary.cat(userInputArray.slice(1));
+      commandLibrary.head(userInputArray.slice(1));
+      commandLibrary.tail(userInputArray.slice(1));
+      done(bufferedText);
+      done(bufferedText);
+      done(data);
+      errorHandler();
+      if(error)
+      if(error)
+      if(error)
+      let bufferedText = Buffer.from(firstTenLines, 'utf8');
+      let bufferedText = Buffer.from(lastTenLines, 'utf8');
+      let fileText = data.toString('utf8');
+      let fileText = data.toString('utf8');
+      let firstTenLines = fileText.split('\n').slice(0,10).join("\n");
+      let lastTenLines = fileText.split('\n').slice(-10).join('\n');
+    case "cat":
+    case "echo":
+    case "head":
+    case "tail":
+    const fileName = fullPath[0];
+    const fileName = fullPath[0];
+    const fileName = fullPath[0];
+    default:
+    done(userInput);
+    fs.readFile(fileName, (error, data) => {
+    fs.readFile(fileName, (error, data) => {
+    fs.readFile(fileName, (error, data) => {
+    });
+    });
+    });
+  "cat": function(fullPath) {
+  "echo": function(userInput) {
+  "head": function(fullPath) {
+  "tail": function(fullPath) {
+  //The head command
+  //parses the user input to understand which command was typed
+  //the cat command
+  //the echo command
+  const command = userInputArray[0];
+  const userInputArray = userInput.split(" ");
+  process.stdout.write('Error: Command not found');
+  process.stdout.write('\nprompt > ');
+  process.stdout.write('\nprompt > ');
+  process.stdout.write(output);
+  switch(command) {
+  }
+  }
+  },
+  },
+  },
+//where we will store our commands
+//where we will store the logic of our commands
+//write out data
+const commandLibrary = {
+const fs = require("fs");
+exports.commandLibrary = commandLibrary;
+exports.evaluateCmd = evaluateCmd;
+function done(output) {
+function errorHandler() {
+function evaluateCmd(userInput) {
+}
+}
+}
+};
+```
+
+The wc command outputs the word count, line count, and byte count of a file.
+The output of running wc on the commands.js file was:
+
+```
+89     225    2293 commands.js
+```
+
+The uniq command sorts the file line by line and removes duplicate lines.
+The output from running uniq command on the commands.js file was:
+
+```
+const fs = require("fs");
+
+//write out data
+function done(output) {
+  process.stdout.write(output);
+  process.stdout.write('\nprompt > ');
+}
+
+function errorHandler() {
+  process.stdout.write('Error: Command not found');
+  process.stdout.write('\nprompt > ');
+}
+
+//where we will store our commands
+function evaluateCmd(userInput) {
+  //parses the user input to understand which command was typed
+  const userInputArray = userInput.split(" ");
+  const command = userInputArray[0];
+
+  switch(command) {
+    case "echo":
+       //we will add the functionality of echo next within the object commandLibrary
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       break;
+    case "cat":
+      commandLibrary.cat(userInputArray.slice(1));
+      break;
+    case "head":
+      commandLibrary.head(userInputArray.slice(1));
+      break;
+    case "tail":
+      commandLibrary.tail(userInputArray.slice(1));
+      break;
+    default:
+      errorHandler();
+      break;
+  }
+}
+
+//where we will store the logic of our commands
+const commandLibrary = {
+  //the echo command
+  "echo": function(userInput) {
+    done(userInput);
+  },
+  //the cat command
+  "cat": function(fullPath) {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, (error, data) => {
+      if(error)
+        throw error;
+
+      done(data);
+    });
+  },
+  //The head command
+  "head": function(fullPath) {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, (error, data) => {
+      if(error)
+        throw error;
+
+      //convert unicode to utf8
+      let fileText = data.toString('utf8');
+      //Only select the first ten lines
+      let firstTenLines = fileText.split('\n').slice(0,10).join("\n");
+      //convert the the text back to unicode to display in terminal
+      let bufferedText = Buffer.from(firstTenLines, 'utf8');
+
+      done(bufferedText);
+    });
+  },
+  "tail": function(fullPath) {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, (error, data) => {
+      if(error)
+        throw error;
+
+      let fileText = data.toString('utf8');
+      let lastTenLines = fileText.split('\n').slice(-10).join('\n');
+      let bufferedText = Buffer.from(lastTenLines, 'utf8');
+
+      done(bufferedText);
+    });
+  }
+};
+
+exports.commandLibrary = commandLibrary;
+exports.evaluateCmd = evaluateCmd;
+```
+
+2. I ran sort commands.js || wc on commands.js. The sort command sorted
+the file, and then wc counted the word, line, and byte size. The output
+was:
+
+```
+ 89     225    2293
+```
+
+6.
+
+```javascript
+function reverseStrings(input) {
+  let reversed = input.split("").reverse().join("").split(" ").reverse().join(" ");
+  return reversed;
+}
+
+let result = reverseStrings("Hi there yo dawg");
+
+console.log(result);
+```
